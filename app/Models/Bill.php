@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Bill extends Model
 {
+    use CrudTrait;
     protected $table = 'bills';
 
     protected $fillable = [
@@ -17,7 +19,7 @@ class Bill extends Model
         return $this->belongsTo(Customer::class, 'customer_id');
     }
 
-    public function reading()
+    public function monthlyReading()
     {
         return $this->belongsTo(MonthlyReading::class ,'reading_id');
     }
