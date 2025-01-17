@@ -3,3 +3,4 @@
 
 <x-backpack::menu-item title="Customers" icon="la la-user" :link="backpack_url('customer')" />
 <x-backpack::menu-item title="Water meters" icon="la la-tachometer-alt" :link="backpack_url('water-meter')" />
+<x-backpack::menu-item title="Monthly readings" icon="la la-clipboard" :link="backpack_url('monthly-reading')" />

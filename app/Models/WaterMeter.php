@@ -18,4 +18,9 @@ class WaterMeter extends Model
     {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
+
+    public function monthlyReadings()
+    {
+        return $this->hasMany(MonthlyReading::class, 'reading_id');
+    }
 }
