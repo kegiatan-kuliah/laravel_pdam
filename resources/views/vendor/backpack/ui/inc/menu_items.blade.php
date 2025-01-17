@@ -5,3 +5,4 @@
 <x-backpack::menu-item title="Water meters" icon="la la-tachometer-alt" :link="backpack_url('water-meter')" />
 <x-backpack::menu-item title="Monthly readings" icon="la la-clipboard" :link="backpack_url('monthly-reading')" />
 <x-backpack::menu-item title="Bills" icon="la la-handshake" :link="backpack_url('bill')" />
+<x-backpack::menu-item title="Payments" icon="la la-money" :link="backpack_url('payment')" />
