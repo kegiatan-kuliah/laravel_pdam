@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\BillRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 /**
  * Class BillCrudController
  * @package App\Http\Controllers\Admin
@@ -39,6 +39,7 @@ class BillCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::addButtonFromModelFunction('top', 'export_button', 'export', 'end');
         CRUD::column([
             'label' => 'Bill Date',
             'name' => 'bill_date',
@@ -151,5 +152,12 @@ class BillCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function export()
+    {
+        $bills = \App\Models\Bill::orderBy('id','desc')->get();   
+        $pdf = Pdf::loadView('export.bill',['bills' => $bills]);
+        return $pdf->stream();
     }
 }

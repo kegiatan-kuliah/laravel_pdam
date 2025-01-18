@@ -23,4 +23,9 @@ class Bill extends Model
     {
         return $this->belongsTo(MonthlyReading::class ,'reading_id');
     }
+
+    public function export($crud = false)
+    {
+        return '<a class="btn btn-primary" target="_blank" href="'.route('bill.export').'">Download PDF</a>';
+    }
 }

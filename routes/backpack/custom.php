@@ -20,6 +20,7 @@ Route::group([
     Route::crud('water-meter', 'WaterMeterCrudController');
     Route::crud('monthly-reading', 'MonthlyReadingCrudController');
     Route::crud('bill', 'BillCrudController');
+    Route::get('/bill/export', 'BillCrudController@export')->name('bill.export');
     Route::crud('payment', 'PaymentCrudController');
 }); // this should be the absolute last line of this file
 
